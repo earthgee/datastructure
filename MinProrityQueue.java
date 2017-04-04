@@ -8,11 +8,22 @@ public class MinProrityQueue<Key extends Comparable<Key>> {
     private Key[] pq;
     private int N=0;
 
+    public MinProrityQueue(){
+        pq= (Key[]) new Comparable[16];
+    }
+
     public MinProrityQueue(int max){
         pq= (Key[]) new Comparable[max+1];
     }
 
+    public MinProrityQueue(Iterable<Key> iterable){
+        for(Key key:iterable){
+            insert(key);
+        }
+    }
+
     void insert(Key k){
+        if(N==pq.length) resize(2*pq.length);
         pq[++N]=k;
         swim(N);
     }
@@ -21,6 +32,9 @@ public class MinProrityQueue<Key extends Comparable<Key>> {
         Key k=pq[1];
         exch(1,N--);
         pq[N+1]=null;
+        if(N>0&&N==pq.length/4){
+            resize(pq.length/2);
+        }
         sink(1);
         return k;
     }
@@ -58,6 +72,14 @@ public class MinProrityQueue<Key extends Comparable<Key>> {
             exch(k,j);
             k=j;
         }
+    }
+
+    public void resize(int max){
+        Key[] items= (Key[]) new Comparable[max];
+        for(int i=0;i<N;i++){
+            items[i]=pq[i];
+        }
+        pq=items;
     }
 
 }
