@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Created by earthgee on 17/4/4.
  */
-public class EdgeWeightedDigraph {
+public class EdgeWeightedDigraph extends Digraph{
 
     private final int V;
     private int E;
@@ -22,11 +22,11 @@ public class EdgeWeightedDigraph {
         }
     }
 
-    int V(){
+    public int V(){
         return V;
     }
 
-    int E(){
+    public int E(){
         return E;
     }
 
@@ -34,7 +34,12 @@ public class EdgeWeightedDigraph {
         adj[e.from()].add(e);
     }
 
-    Iterable<DirectedEdge> adj(int v){
+    @Override
+    public Iterable<Integer> adj(int v) {
+        return super.adj(v);
+    }
+
+    Iterable<DirectedEdge> adj2(int v){
         return adj[v];
     }
 

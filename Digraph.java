@@ -14,6 +14,10 @@ public class Digraph {
     private int E;
     private List<Integer>[] adj;
 
+    public Digraph(){
+        V=0;
+    }
+
     public Digraph(int V){
         this.V=V;
         this.E=0;

@@ -8,13 +8,13 @@ import java.util.List;
 /**
  * Created by earthgee on 17/4/5.
  */
-public class SP {
+public class DijkstraSP {
 
     private DirectedEdge[] edgeTo;
     private double[] distTo;
     private IndexMinPQ<Double> pq;
 
-    public SP(EdgeWeightedDigraph G,int s){
+    public DijkstraSP(EdgeWeightedDigraph G, int s){
         edgeTo=new DirectedEdge[G.V()];
         distTo=new double[G.V()];
         pq=new IndexMinPQ<>(G.V());
@@ -30,7 +30,7 @@ public class SP {
     }
 
     private void relax(EdgeWeightedDigraph G,int v){
-        for(DirectedEdge e:G.adj(v)){
+        for(DirectedEdge e:G.adj2(v)){
             int w=e.to();
             if(distTo[w]>distTo[v]+e.weight()){
                 distTo[w]=distTo[v]+e.weight();
