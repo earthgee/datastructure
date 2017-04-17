@@ -1,0 +1,5 @@
+Add Two NUmbers
+链表加法（顺序）
+while (l1 != null || l2 != null || carry != 0)
+l1或l2中任一个为空用0代替
+carry保存前面的进位
