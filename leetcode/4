@@ -1,0 +1,36 @@
+Median of Two Sorted Arrays
+寻找两个有序数组的中位数
+暴力解法:合并两个数组后排序，找到中位数,时间复杂度不满足要求
+要求的时间复杂度为o(log(m+n)),将问题扩展为寻找第k大的数
+解法类似于二分搜索,
+public class Solution {
+    public double findMedianSortedArrays(int[] nums1, int[] nums2) {
+        int lengthA=nums1.length;
+        int lengthB=nums2.length;
+        if((lengthA+lengthB)%2==0){
+            return (findKth(nums1,0,nums2,0,(lengthA+lengthB)/2)+findKth(nums1,0,nums2,0,(lengthA+lengthB)/2+1))/2;
+        }else{
+            return findKth(nums1,0,nums2,0,(lengthA+lengthB)/2+1);
+        }
+    }
+    
+    private double findKth(int[] nums1,int start1,int[] nums2,int start2,int k){
+        int length1=nums1.length-start1;
+        int length2=nums2.length-start2;
+
+        if(length1>length2) return findKth(nums2,start2,nums1,start1,k);
+        if(length1==0) return nums2[k-1];
+        if(k==1) return Math.min(nums1[start1],nums2[start2]);
+
+        int p1=Math.min(k/2,length1);
+        int p2=k-p1;
+
+        if(nums1[start1+p1-1]<nums2[start2+p2-1]){
+            return findKth(nums1,start1+p1,nums2,start2,k-p1);
+        }else if(nums1[start1+p1-1]>nums2[start2+p2-1]){
+            return findKth(nums1,start1,nums2,start2+p2,k-p2);
+        }else{
+            return nums1[start1+p1-1];
+        }
+    }
+}
