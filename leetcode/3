@@ -1,0 +1,25 @@
+Longest Substring Without Repeating Characters
+非重复最长子串(字符需连续)
+
+解法1:双层for循环加搜索 时间复杂度o(n^3)
+
+解法2:滑动窗口
+HashSet作为滑动窗口，双指针界定子串内容
+public class Solution {
+    public int lengthOfLongestSubstring(String s) {
+        int n = s.length();
+        Set<Character> set = new HashSet<>();
+        int ans = 0, i = 0, j = 0;
+        while (i < n && j < n) {
+            // try to extend the range [i, j]
+            if (!set.contains(s.charAt(j))){
+                set.add(s.charAt(j++));
+                ans = Math.max(ans, j - i);
+            }
+            else {
+                set.remove(s.charAt(i++));
+            }
+        }
+        return ans;
+    }
+}
