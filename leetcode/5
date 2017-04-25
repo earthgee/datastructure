@@ -1,0 +1,24 @@
+Longest Palindromic Substring
+找到字符串中的最长回文子串
+
+dp解法: 界定s[i...j]是否是回文串的条件是s.charAt[i]==s.charAt[j]&&s[i+1...j-1]也是回文串
+public String longestPalindrome(String s) {
+  int n = s.length();
+  String res = null;
+
+  boolean[][] dp = new boolean[n][n];
+
+  for (int i = n - 1; i >= 0; i--) {
+    for (int j = i; j < n; j++) {
+      dp[i][j] = s.charAt(i) == s.charAt(j) && (j - i < 3 || dp[i + 1][j - 1]);
+
+      if (dp[i][j] && (res == null || j - i + 1 > res.length())) {
+        res = s.substring(i, j + 1);
+      }
+    }
+  }
+
+  return res;
+}
+
+kmp解法:对s求逆序s‘ 求s和s'的最长公共子序列即为最长回文子串
