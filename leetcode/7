@@ -1,0 +1,23 @@
+Reverse Integer
+翻转32位带符号整数
+
+这个我觉得最好不要用long，用了就简单了
+
+正常流程是求余 求商
+不过为了判断溢出 在每次循环都要做一个判断
+public int reverse(int x)
+{
+    int result = 0;
+
+    while (x != 0)
+    {
+        int tail = x % 10;
+        int newResult = result * 10 + tail;
+        if ((newResult - tail) / 10 != result)
+        { return 0; }
+        result = newResult;
+        x = x / 10;
+    }
+
+    return result;
+}
