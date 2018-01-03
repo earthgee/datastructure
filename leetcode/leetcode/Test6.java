@@ -1,4 +1,5 @@
 
+//找规律
 public class Test6 {
 
 	public static String convert(String s, int numRows) {

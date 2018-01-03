@@ -1,4 +1,5 @@
 
+//翻转int 注意溢出
 public class Test7 {
 
 	 public int reverse(int x) {

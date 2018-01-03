@@ -1,4 +1,5 @@
 
+//二分查找  分治
 public class Test4 {
 
 	public double findMedianSortedArrays(int[] nums1, int[] nums2) {
