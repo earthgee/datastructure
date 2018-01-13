@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 //找子串 通过map缓存代替排列组合所有子串组合 但还是暴力解法，有无更好方法？（滑动窗口，怎么滑）
+//可以滑 找到words中字符串的长度 比如是3  那么总共三个窗口就可以覆盖所有的情况了
 public class Test30 {
 
 	public static List<Integer> findSubstring(String s, String[] words) {
