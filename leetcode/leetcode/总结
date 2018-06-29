@@ -1,0 +1,17 @@
+分类:
+1.map或set
+(1)two sum 一个数组，找到两个数之和等于target，返回目标下标
+(3)Longest Substring Without Repeating Characters 在一个字符串中，找到最长不重复的子串（子串需连续）
+   用双指针结合一个set，没有重复时，j指针一直往后走，遇到重复时，i指针+1
+2.链表
+(2)add two numbers 链表加法，从前往后加（注意两个链表长度可能不一样，注意进位的处理）
+3.二分
+(4)Median of Two Sorted Arrays  两个有序数组A,B，长度m,n，找到中位数。
+   可以将问题转化为在[0,m]中找一个i，使得B[j-1]<=A[i]&&A[i-1]<=B[j],j=(m+n+1)/2,即i+j为一半的位置。
+   在0，m中二分搜索，有三种情况：
+   1.B[j-1]<=A[i] and A[i-1]<=B[j] 找到了i
+     在这种情况下，median=
+     max(A[i-1],B[j-1]),当m+n是奇数时
+     [max(A[i-1],B[j-1])+min(A[i],B[j])]/2,当m+n是偶数时
+   2.B[j-1]>A[i]  增加i
+   3.A[i-1]>B[j]  减小i
