@@ -31,7 +31,10 @@
 (8)String to Integer.(atoi)
    1.滤空格。2.正负判断。3.注意判断溢出 这里比7多一个条件：res==Integer.MAX_VALUE/10&&tmp>7
 (9)Palindrome Number 判断回文数。构造另一个数，使得从中间切开原来的数，两边相等即是回文数。
-6.其他
+6.双指针 
+(11)Container With Most Water.给一个长度数组，和x轴围成的长方形面积求最大。
+    双指针从两边往中间靠，往中间走的时候选短的那边.
+7.其他
 (6)ZigZag Conversion。以折线形式显示字符串，并按照正常顺序输出。
    例：字符串（PAYPALISHIRING）
        P   A   H   N
