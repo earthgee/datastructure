@@ -15,3 +15,27 @@
      [max(A[i-1],B[j-1])+min(A[i],B[j])]/2,当m+n是偶数时
    2.B[j-1]>A[i]  增加i
    3.A[i-1]>B[j]  减小i
+4.动态规划
+(5)Longest Palindromic Substring 最长回文子串
+   二维动规。距离由小到大。dp[i][j]=dp[i+1][j-1]。
+(10)Regular Expression Matching 简单正则匹配
+   二维动规。a，b两个字符串，dp[i][j]代表a从i开始和b从j开始是不是匹配的，最后看dp[0][0]即可。
+   i：a.length to 0,j：b.length-1 to 0,
+   match=a.charAt(i)==b.charAt(j)||b.charAt(j)=='.'
+   if(j!=b.length-1&&b.charAt(j+1)=='*') dp[i][j]=dp[i][j+2]||match&&dp[i+1][j]
+   else dp[i][j]=match&&dp[i+1][j+1]
+5.数学
+(7)Reverse Integer.翻转整数。
+   输入是有符号整数，翻转后溢出输出0。
+   关键计算：res=res*10+x%10.x=x/10. 判断溢出的条件是:Math.abs(res)>Integer.MAX_VALUE/10
+(8)String to Integer.(atoi)
+   1.滤空格。2.正负判断。3.注意判断溢出 这里比7多一个条件：res==Integer.MAX_VALUE/10&&tmp>7
+(9)Palindrome Number 判断回文数。构造另一个数，使得从中间切开原来的数，两边相等即是回文数。
+6.其他
+(6)ZigZag Conversion。以折线形式显示字符串，并按照正常顺序输出。
+   例：字符串（PAYPALISHIRING）
+       P   A   H   N
+       A P L S I I G
+       Y   I   R
+      结果为:PAHNAPLSIIGYIR
+   解法：找规律，一个circle是numRows+numRows-2，分边界和非边界两种情况讨论。
