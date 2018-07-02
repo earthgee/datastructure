@@ -42,3 +42,7 @@
        Y   I   R
       结果为:PAHNAPLSIIGYIR
    解法：找规律，一个circle是numRows+numRows-2，分边界和非边界两种情况讨论。
+ (12)Integer to Roman。
+   
+   
+   
