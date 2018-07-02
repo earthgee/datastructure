@@ -3,6 +3,7 @@
 (1)two sum 一个数组，找到两个数之和等于target，返回目标下标
 (3)Longest Substring Without Repeating Characters 在一个字符串中，找到最长不重复的子串（子串需连续）
    用双指针结合一个set，没有重复时，j指针一直往后走，遇到重复时，i指针+1
+(15)3Sum.和1不同要找到所有组合。从前往后固定一个后转化为2 sum问题。   
 2.链表
 (2)add two numbers 链表加法，从前往后加（注意两个链表长度可能不一样，注意进位的处理）
 3.二分
@@ -34,7 +35,9 @@
 6.双指针 
 (11)Container With Most Water.给一个长度数组，和x轴围成的长方形面积求最大。
     双指针从两边往中间靠，往中间走的时候选短的那边.
-7.其他
+7.字符串
+(14)Longest Common Prefix.最长公共前缀.取一个作为基准比较即可。
+8.其他
 (6)ZigZag Conversion。以折线形式显示字符串，并按照正常顺序输出。
    例：字符串（PAYPALISHIRING）
        P   A   H   N
@@ -42,7 +45,12 @@
        Y   I   R
       结果为:PAHNAPLSIIGYIR
    解法：找规律，一个circle是numRows+numRows-2，分边界和非边界两种情况讨论。
- (12)Integer to Roman。
-   
+(12)Integer to Roman。阿拉伯数字转化为罗马数字。
+     做一张映射表：
+     {1000，900，500，400，100，90，50，40，10，9，5，4，1}
+     {M，   CM,  D,   CD,  C,  XC, L,  XL, X, IX,V, IV,I}
+(13)Roman to Integer。 罗马数字转化为阿拉伯数字。
+     做一个反向映射，放在map里。每次读两个字符，没有对应的就退回去读一个。
+     
    
    
